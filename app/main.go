@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 	"task-api/app/config"
+	"task-api/app/handlers"
 	"task-api/foundation/database"
-	"task-api/handlers"
 
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
