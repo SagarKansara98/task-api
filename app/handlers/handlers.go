@@ -23,8 +23,8 @@ func API(e *echo.Echo, cfg config.Config, db *sqlx.DB, log zerolog.Logger) {
 	taskHandlers := taskHandlers{
 		task: task.New(db, log),
 	}
-
-	taskG := e.Group("/task")
+	api := e.Group("/api/v1")
+	taskG := api.Group("/task")
 	taskG.POST("", taskHandlers.create, m.Authentication)
 	taskG.GET("", taskHandlers.query, m.Authentication)
 	taskG.GET("/:task_id", taskHandlers.queryByID, m.Authentication)
@@ -35,10 +35,10 @@ func API(e *echo.Echo, cfg config.Config, db *sqlx.DB, log zerolog.Logger) {
 	userHandlers := userHandlers{
 		userService: user.New(db, cfg.JwtTokenSeceret, log),
 	}
-	userG := e.Group("/user")
+	userG := api.Group("/user")
 	userG.POST("/login", userHandlers.login)
 	userG.POST("", userHandlers.create)
-	userG.GET("/:user_id", userHandlers.queryByID, m.Authentication)
+	userG.GET("", userHandlers.queryByID, m.Authentication)
 	userG.PUT("/:user_id", userHandlers.update, m.Authentication)
 	userG.DELETE("/:user_id", userHandlers.delete, m.Authentication)
 }
