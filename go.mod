@@ -12,7 +12,7 @@ require (
 	github.com/lib/pq v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.31.0
-	golang.org/x/crypto v0.11.0
+	golang.org/x/crypto v0.17.0
 )
 
 require (
@@ -26,7 +26,7 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/net v0.12.0 // indirect
-	golang.org/x/sys v0.12.0 // indirect
-	golang.org/x/text v0.11.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 )
